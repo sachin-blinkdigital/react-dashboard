@@ -12,13 +12,15 @@ function Header({
     <header className="sticky top-0 bg-white border-b border-gray-200 z-30">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 -mb-px">
-
+          <div className="main-title">
+            <h2>Digital Presence Index</h2>
+          </div>
           {/* Header: Left side */}
           <div className="flex">
 
             {/* Hamburger button */}
             <button
-              className="text-gray-500 hover:text-gray-600 lg:hidden"
+              className="text-gray-500 hover:text-gray-600 "
               aria-controls="sidebar"
               aria-expanded={sidebarOpen}
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -34,16 +36,16 @@ function Header({
           </div>
 
           {/* Header: Right side */}
-          <div className="flex items-center">
+          {/* <div className="flex items-center"> */}
 
-            <SearchModal />
-            <Notifications />
-            <Help />
+            {/* <SearchModal /> */}
+            {/* <Notifications />
+            <Help /> */}
             {/*  Divider */}
-            <hr className="w-px h-6 bg-gray-200 mx-3" />
-            <UserMenu />
+            {/* <hr className="w-px h-6 bg-gray-200 mx-3" />
+            <UserMenu /> */}
 
-          </div>
+          {/* </div> */}
 
         </div>
       </div>

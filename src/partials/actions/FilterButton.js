@@ -29,7 +29,7 @@ function FilterButton() {
   });
 
   return (
-    <div className="relative inline-flex">
+    <div className="relative inline-flex filter-select">
       <button
         ref={trigger}
         className="btn bg-white border-gray-200 hover:border-gray-300 text-gray-500 hover:text-gray-600"

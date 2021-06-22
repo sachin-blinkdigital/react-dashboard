@@ -1,13 +1,209 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback");
 
 @tailwind base;
 @tailwind components;
 
 // Additional styles
-@import 'additional-styles/utility-patterns.scss';
-@import 'additional-styles/range-slider.scss';
-@import 'additional-styles/toggle-switch.scss';
-@import 'additional-styles/flatpickr.scss';
-@import 'additional-styles/theme.scss';
+@import "additional-styles/utility-patterns.scss";
+@import "additional-styles/range-slider.scss";
+@import "additional-styles/toggle-switch.scss";
+@import "additional-styles/flatpickr.scss";
+@import "additional-styles/theme.scss";
 
 @tailwind utilities;
+
+/* MIXINS */
+
+@mixin mq($size) {
+  @if $size==mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $size==desktop {
+    @media (min-width: 769px) {
+      @content;
+    }
+  } @else if $size==miniDesktop {
+    @media only screen and (min-width: 769px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size==largeDesktop {
+    @media only screen and (min-width: 1201px) {
+      @content;
+    }
+  }
+}
+
+@mixin flexbox {
+  display: -webkit-box; // old
+  display: -moz-box; // old
+  display: -ms-flexbox; // ie
+  display: -webkit-flex; // new
+  display: flex; // new
+}
+
+.body {
+  background: white !important;
+}
+
+.main-title {
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @include mq(mobile) {
+    h2 {
+      font-size: 22px;
+    }
+  }
+}
+
+.table-head {
+  background: black;
+}
+
+.filters-wrap {
+  select {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    margin-right: 5px;
+    border: 1px solid black;
+    &:hover,
+    &:visited,
+    &:focus {
+      outline: none !important;
+      border: 0;
+      box-shadow: none;
+      border: 1px solid black;
+    }
+  }
+
+  .filter-select {
+    button {
+      border: 1px solid black;
+      border-radius: 50%;
+    }
+  }
+
+  button.btn-filter {
+    color: black;
+    border: 1px solid black;
+    background: white;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    &:hover {
+      background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+      color: white;
+      border: 1px solid #6e5f7e;
+    }
+  }
+  button.btn-filter.active {
+    background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+    color: white;
+    border: 1px solid #6e5f7e;
+  }
+  // button.btn-instagram.active {
+  //   color: white;
+  //   border: 1px solid #d6249f;
+  //   background: radial-gradient(
+  //     circle at 30% 107%,
+  //     #fdf497 0%,
+  //     #fdf497 5%,
+  //     #fd5949 45%,
+  //     #d6249f 60%,
+  //     #285aeb 90%
+  //   );
+  // }
+  // button.btn-facebook.active,
+  // button.btn-facebook:hover {
+  //   color: white;
+  //   background: #3b5998;
+  //   border: 1px solid #3b5998;
+  // }
+  // button.btn-twitter.active,
+  // button.btn-twitter:hover {
+  //   color: white;
+  //   background: #55acee;
+  //   border: 1px solid #55acee;
+  // }
+  // button.btn-google.active,
+  // button.btn-google:hover {
+  //   color: white;
+  //   background: #dc4e41;
+  //   border: 1px solid #dc4e41;
+  // }
+
+  @include mq(mobile) {
+    select {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+main {
+  @include mq(desktop) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.main-head h2 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  color: black;
+  @include mq(mobile) {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.sidebar-wrap {
+  @include mq(desktop) {
+    //display: none;
+    width: 0 !important;
+  }
+  #sidebar {
+    background: black;
+  }
+}
+
+.filters-wrap {
+  margin-bottom: 20px;
+  @include mq(mobile) {
+    @include flexbox();
+  }
+}
+
+.table-head {
+  tr {
+    th {
+      div {
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  @include flexbox();
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1230px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 15px;
+
+  .social {
+    i:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}

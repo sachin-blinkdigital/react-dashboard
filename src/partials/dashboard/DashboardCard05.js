@@ -77,7 +77,7 @@ function DashboardCard05() {
         pointRadius: 0,
         pointHoverRadius: 3,
         pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
-        clip: 20,
+        clip: 0,
       },
     ],
   };
