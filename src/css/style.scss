@@ -179,7 +179,6 @@ main {
 }
 
 .dashboard-table {
-  table-layout: fixed;
   thead {
     tr {
       th:first-child {
@@ -212,6 +211,10 @@ main {
         padding: 5px 10px;
       }
     }
+  }
+
+  @include mq(desktop) {
+    table-layout: fixed;
   }
 }
 
