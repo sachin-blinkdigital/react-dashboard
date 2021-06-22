@@ -8,21 +8,21 @@ function DashboardCard07() {
   const chartData = {
     labels: [
       '12-01-2020', '01-01-2021', '02-01-2021',
-      '03-01-2021', '04-01-2021', '05-01-2021',
-      '06-01-2021', '07-01-2021', '08-01-2021',
+      '03-01-2021', '04-01-2021', 
+      '12-01-2020', '01-01-2021', '02-01-2021',
+      '03-01-2021', '04-01-2021', 
     ],
     datasets: [
       // Indigo line
       {
         data: [
-          732, 610, 610, 504, 504, 504, 349,
-          349, 504, 342, 504, 610,
+          732, 10, 510, 64, 204,
         ],
         fill: true,
         backgroundColor: `rgba(${hexToRGB(tailwindConfig().theme.colors.blue[500])}, 0.08)`,
         borderColor: tailwindConfig().theme.colors.indigo[500],
         borderWidth: 2,
-        tension: 4,
+        tension: 1,
         pointRadius: 0,
         pointHoverRadius: 3,
         pointBackgroundColor: tailwindConfig().theme.colors.indigo[500],
@@ -56,7 +56,7 @@ function DashboardCard07() {
 
         {/* Table */}
         <div className="overflow-x-auto">
-          <table className="table-auto w-full">
+          <table className="table-auto w-full dashboard-table">
             {/* Table header */}
             <thead className="text-xs uppercase text-white bg-gray-50 rounded-sm table-head">
               <tr>
@@ -64,25 +64,25 @@ function DashboardCard07() {
                   <div className="font-semibold text-left">Brand</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">Total Source</div>
+                  <div className="font-semibold">Total Score</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">7d%</div>
+                  <div className="font-semibold">7d%</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">24hr% </div>
+                  <div className="font-semibold">24hr% </div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">Engagement</div>
+                  <div className="font-semibold">Engagement</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">Reach & Impressions</div>
+                  <div className="font-semibold">Reach & Impressions</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">Search Volume</div>
+                  <div className="font-semibold">Search Volume</div>
                 </th>
                 <th className="p-2">
-                  <div className="font-semibold text-left">Mansions</div>
+                  <div className="font-semibold">Mentions</div>
                 </th>
                 <th className="p-2">
                   <div className="font-semibold text-center">Chart</div>
@@ -103,7 +103,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -125,7 +125,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -142,7 +142,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -164,7 +164,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -181,7 +181,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -203,7 +203,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -220,7 +220,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -242,7 +242,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -259,7 +259,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -281,7 +281,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -298,7 +298,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -320,7 +320,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -337,7 +337,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -359,7 +359,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>
@@ -376,7 +376,7 @@ function DashboardCard07() {
                   </div>
                 </td>
                 <td className="p-2">
-                  <div className="text-center">707,454,370,599</div>
+                  <div className="text-center">707,454,37</div>
                 </td>
                 <td className="p-2">
                   <div className="text-center text-red-500">4%</div>
@@ -398,7 +398,7 @@ function DashboardCard07() {
                 </td> 
                 <td>
                   <div className="flex-grow">
-                    <LineChart data={chartData} width={150} height={50} />
+                    <LineChart data={chartData} width={150} height={65} />
                   </div>
                 </td>              
               </tr>

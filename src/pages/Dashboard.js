@@ -5,7 +5,7 @@ import Header from '../partials/Header';
 import Footer from '../partials/Footer';
 import FilterButton from '../partials/actions/FilterButton';
 import DashboardCard07 from '../partials/dashboard/DashboardCard07';
-
+import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 
 function Dashboard() {
 
@@ -69,7 +69,7 @@ function Dashboard() {
               </div>
 
             <DashboardCard07 />
-
+            {/* <DashboardCard05 /> */}
 
 
           </div>
