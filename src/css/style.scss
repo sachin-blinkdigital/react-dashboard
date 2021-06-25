@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback");
-
 @tailwind base;
 @tailwind components;
 
@@ -9,8 +7,24 @@
 @import "additional-styles/toggle-switch.scss";
 @import "additional-styles/flatpickr.scss";
 @import "additional-styles/theme.scss";
+@import "additional-styles/fonts.scss";
 
 @tailwind utilities;
+
+/* VARIABLES */
+
+$prime_red: #ef737f;
+$prime_blue: #6e5f7e;
+$text_gray: #999997;
+$text_red: #a22d2b;
+$text_green: #518d58;
+$bg_gray: #f7f7f7;
+$charcoal: #3c3d3a;
+
+$black: "Circular-Black";
+$bold: "Circular-Bold";
+$medium: "Circular-Medium";
+$book: "Circular-Book";
 
 /* MIXINS */
 
@@ -42,17 +56,24 @@
   display: flex; // new
 }
 
-.body {
-  background: white !important;
+.bg-lgray {
+  background: $bg_gray;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .main-title {
   h2 {
     font-size: 32px;
     font-weight: 600;
-    background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+    background: linear-gradient(to right, $prime_blue 0%, $prime_red 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: $bold;
   }
   @include mq(mobile) {
     h2 {
@@ -67,74 +88,43 @@
     padding-bottom: 5px;
     border-radius: 20px;
     margin-right: 5px;
-    border: 1px solid black;
+    border: 1px solid $charcoal;
     font-size: 14px;
-    color: black;
+    color: $charcoal;
     &:hover,
     &:visited,
     &:focus {
       outline: none !important;
       border: 0;
       box-shadow: none;
-      border: 1px solid black;
+      border: 1px solid $charcoal;
     }
   }
 
   .filter-select {
     .round-btn {
-      border: 1px solid black;
+      border: 1px solid $charcoal;
       border-radius: 50%;
     }
   }
 
   button.btn-filter {
-    color: black;
-    border: 1px solid black;
+    color: $charcoal;
+    border: 1px solid $charcoal;
     background: white;
     transition: all 0.3s ease;
     margin-bottom: 5px;
     &:hover {
-      background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+      background: linear-gradient(to right, $prime_blue 0%, $prime_red 100%);
       color: white;
-      border: 1px solid #6e5f7e;
+      border: 1px solid $prime_blue;
     }
   }
   button.btn-filter.active {
-    background: linear-gradient(to right, #6e5f7e 0%, #ef737f 100%);
+    background: linear-gradient(to right, $prime_blue 0%, $prime_red 100%);
     color: white;
-    border: 1px solid #6e5f7e;
+    border: 1px solid $prime_blue;
   }
-  // button.btn-instagram.active {
-  //   color: white;
-  //   border: 1px solid #d6249f;
-  //   background: radial-gradient(
-  //     circle at 30% 107%,
-  //     #fdf497 0%,
-  //     #fdf497 5%,
-  //     #fd5949 45%,
-  //     #d6249f 60%,
-  //     #285aeb 90%
-  //   );
-  // }
-  // button.btn-facebook.active,
-  // button.btn-facebook:hover {
-  //   color: white;
-  //   background: #3b5998;
-  //   border: 1px solid #3b5998;
-  // }
-  // button.btn-twitter.active,
-  // button.btn-twitter:hover {
-  //   color: white;
-  //   background: #55acee;
-  //   border: 1px solid #55acee;
-  // }
-  // button.btn-google.active,
-  // button.btn-google:hover {
-  //   color: white;
-  //   background: #dc4e41;
-  //   border: 1px solid #dc4e41;
-  // }
-
   @include mq(mobile) {
     select {
       margin-bottom: 5px;
@@ -143,6 +133,9 @@
 }
 
 main {
+  padding: 0 15px;
+  font-family: $book;
+  color: $charcoal;
   @include mq(desktop) {
     max-width: 1200px;
     margin: 0 auto;
@@ -154,7 +147,7 @@ main {
   font-weight: 600;
   margin-bottom: 40px;
   line-height: 1.4;
-  color: black;
+  color: $charcoal;
   @include mq(mobile) {
     font-size: 28px;
     margin-bottom: 20px;
@@ -167,7 +160,10 @@ main {
     width: 0 !important;
   }
   #sidebar {
-    background: black;
+    background: $charcoal;
+    .navlink {
+      font-family: $bold;
+    }
   }
 }
 
@@ -190,7 +186,7 @@ main {
     }
   }
   .table-head {
-    background: black;
+    background: $charcoal;
     tr {
       th {
         div {
@@ -199,9 +195,6 @@ main {
           text-align: center;
           font-weight: 600;
         }
-        div:not(:first-child) {
-          // text-align: center;
-        }
       }
     }
   }
@@ -209,6 +202,16 @@ main {
     tr {
       td {
         padding: 5px 10px;
+        .brand-title {
+          font-family: $bold;
+          font-size: 16px;
+        }
+        a {
+          transition: all 0.3s ease;
+          &:hover div {
+            color: $prime_red;
+          }
+        }
       }
     }
   }
@@ -224,13 +227,26 @@ main {
   @include flexbox();
   align-items: center;
   justify-content: space-between;
-  max-width: 1230px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   padding: 10px 15px;
-
+  .meta {
+    font-size: 14px;
+    color: $text_gray;
+    transition: all 0.3s ease;
+    a:hover {
+      color: $prime_red;
+      outline: none;
+    }
+    a:visited,
+    a:focus {
+      outline: none;
+    }
+  }
   .social {
     .link {
+      color: $text_gray;
       transition: all 0.3s ease;
       &:hover,
       &:visited,
@@ -238,11 +254,174 @@ main {
         outline: none;
       }
       &:hover {
-        color: #ef737f;
+        color: $prime_red;
       }
     }
     .link:not(:last-child) {
       margin-right: 10px;
+    }
+  }
+}
+
+/* BRANDPAGE */
+
+.brandpage {
+  padding: 40px 0;
+  .name-section {
+    .logo-wrap {
+      @include flexbox();
+      align-items: flex-end;
+      margin-bottom: 40px;
+      img {
+        border-radius: 50%;
+        max-width: 80px;
+      }
+      .meta {
+        margin-left: 15px;
+        h2 {
+          font-size: 34px;
+          font-family: $bold;
+        }
+        .namepill {
+          font-family: $medium;
+          padding: 5px 10px;
+          border: 1px solid;
+          line-height: 100%;
+          border-radius: 9999px;
+          @include flexbox();
+          align-items: center;
+          .stat-update {
+            font-size: 12px;
+            color: green;
+            margin-left: 10px;
+          }
+        }
+        div {
+          @include flexbox();
+        }
+      }
+    }
+  }
+
+  .content {
+    @include flexbox();
+    gap: 20px;
+    .stats-section {
+      flex: 0.4;
+      background: white;
+      border-radius: 5px;
+      .head {
+        background: $charcoal;
+        color: white;
+        padding: 20px 15px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        h3 {
+          font-family: $medium;
+          font-size: 20px;
+        }
+      }
+      .filters {
+        padding: 10px 15px;
+        ul {
+          @include flexbox();
+          align-items: center;
+          justify-content: center;
+          li {
+            font-size: 12px;
+            &:not(:last-child) {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .stats-content {
+        padding: 20px 15px;
+
+        .unit {
+          @include flexbox();
+          align-items: center;
+          justify-content: space-between;
+          &:not(:last-child) {
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid lightgray;
+          }
+          .value {
+            @include flexbox();
+            flex-direction: column;
+            align-items: flex-end;
+            font-family: $bold;
+            font-size: 18px;
+            span {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .chart-section {
+      flex: 0.6;
+      background: white;
+      border-radius: 5px;
+      .head {
+        background: $charcoal;
+        color: white;
+        padding: 20px 15px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        @include flexbox();
+        justify-content: space-between;
+        h3 {
+          font-family: $medium;
+          font-size: 20px;
+        }
+
+        .tablist {
+          @include flexbox();
+          ul {
+            @include flexbox();
+            align-items: center;
+            li {
+              font-size: 12px;
+              color: $text_gray;
+              font-family: $medium;
+              &:not(:last-child) {
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mq(mobile) {
+    padding: 20px 0;
+    .name-section {
+      .logo-wrap {
+        margin-bottom: 20px;
+        img {
+          max-width: 60px;
+        }
+        .meta {
+          h2 {
+            font-size: 26px;
+          }
+        }
+      }
+    }
+    .content {
+      flex-direction: column;
+      .chart-section {
+        .head {
+          flex-direction: column;
+        }
+        canvas {
+          height: 240px;
+        }
+      }
     }
   }
 }
