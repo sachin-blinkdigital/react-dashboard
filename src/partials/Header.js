@@ -25,15 +25,43 @@ function Header({ sidebarOpen, setSidebarOpen }) {
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               <span className="sr-only">Open sidebar</span>
-              <svg
-                className="w-6 h-6 fill-current"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="4" y="5" width="16" height="2" />
-                <rect x="4" y="11" width="16" height="2" />
-                <rect x="4" y="17" width="16" height="2" />
-              </svg>
+              {sidebarOpen ? (
+                <svg
+                  className="w-6 h-6 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  enableBackground="new 0 0 24 24"
+                >
+                  <line
+                    x1="5"
+                    y1="5"
+                    x2="20"
+                    y2="20"
+                    stroke="#000"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                  ></line>
+                  <line
+                    x1="5"
+                    y1="20"
+                    x2="20"
+                    y2="5"
+                    stroke="#000"
+                    strokeWidth="2"
+                    strokeMiterlimit="10"
+                  ></line>
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6 fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect x="4" y="5" width="16" height="2" />
+                  <rect x="4" y="11" width="16" height="2" />
+                  <rect x="4" y="17" width="16" height="2" />
+                </svg>
+              )}
             </button>
           </div>
 

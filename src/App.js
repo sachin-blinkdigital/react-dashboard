@@ -1,15 +1,11 @@
 import React, { useEffect } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Routes from "./Routes";
 
 import "./css/style.scss";
 
 import { focusHandling } from "cruip-js-toolkit";
 import "./charts/ChartjsConfig";
-
-// Import pages
-import Dashboard from "./pages/Dashboard";
-import Brand from "./pages/Brand";
-import NotFound from "./pages/NotFound";
 
 function App() {
   const location = useLocation();
@@ -21,15 +17,7 @@ function App() {
     focusHandling("outline");
   }, [location.pathname]); // triggered on route change
 
-  return (
-    <>
-      <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/brands/:slug" component={Brand} />
-        <Route component={NotFound} />
-      </Switch>
-    </>
-  );
+  return <Routes />;
 }
 
 export default App;

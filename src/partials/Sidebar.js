@@ -49,7 +49,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
       <div
         id="sidebar"
         ref={sidebar}
-        className={`absolute z-40 left-0 top-0  transform h-screen overflow-y-scroll  no-scrollbar w-64 flex-shrink-0 p-4 transition-transform duration-200 ease-in-out ${
+        className={`fixed z-40 left-0 top-0  transform h-screen overflow-y-scroll  no-scrollbar w-64 flex-shrink-0 p-4 transition-transform duration-200 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-64"
         }`}
       >

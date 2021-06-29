@@ -4,7 +4,7 @@ import LineChart from "../../charts/LineChart01";
 import { tailwindConfig, hexToRGB } from "../../utils/Utils";
 import { Link } from "react-router-dom";
 
-function DashboardCard07() {
+function DashboardCard07({ activeTab }) {
   const chartData = {
     labels: [
       "12-01-2020",
@@ -52,6 +52,10 @@ function DashboardCard07() {
       // },
     ],
   };
+
+  const label = "instagram";
+
+  if (activeTab != label) return null;
 
   return (
     <div className="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-gray-200">
