@@ -20,7 +20,7 @@ function Dashboard() {
   }, []);
 
   const fetchSearchVolume = () => {
-    fetch("http://128.199.117.30/digital-presence-index/api/volume/")
+    fetch("https://blinklocal.in/api/volume/")
       .then((res) => res.json())
       .then((res) => {
         //console.log(res.data);
