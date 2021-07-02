@@ -58,121 +58,113 @@ function DashboardTable({ tableData, activeTab }) {
   if (activeTab != label) return null;
 
   return (
-    <main>
-      <div className="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-gray-200">
-        <div className="">
-          {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="table-auto w-full dashboard-table">
-              {/* Table header */}
-              <thead className="text-xs uppercase text-white bg-gray-50 rounded-sm table-head">
-                <tr>
-                  <th className="p-2">
-                    <div className="font-semibold text-left">Brand</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">Total Score</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">7d%</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">24hr% </div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">Engagement</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">Reach & Impressions</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">Search Volume</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold">Mentions</div>
-                  </th>
-                  <th className="p-2">
-                    <div className="font-semibold text-center">Chart</div>
-                  </th>
-                </tr>
-              </thead>
-              {/* Table body */}
-              <tbody className="text-sm font-medium divide-y divide-gray-100">
-                {tableData &&
-                  tableData.map((brand, index) => {
-                    return (
-                      <tr key={index}>
-                        <td className="p-2">
-                          <div className="">
-                            <Link
-                              to={{
-                                pathname: `brands/${brand.keyword}`,
-                                title: brand.keyword,
-                              }}
-                              className="flex items-center"
-                              params={{ testvalue: "hello" }}
+    <div className="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-gray-200">
+      <div className="">
+        {/* Table */}
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full dashboard-table">
+            {/* Table header */}
+            <thead className="text-xs uppercase text-white bg-gray-50 rounded-sm table-head">
+              <tr>
+                <th className="p-2">
+                  <div className="font-semibold text-left">Brand</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">Total Score</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">7d%</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">24hr% </div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">Engagement</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">Reach & Impressions</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">Search Volume</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold">Mentions</div>
+                </th>
+                <th className="p-2">
+                  <div className="font-semibold text-center">Chart</div>
+                </th>
+              </tr>
+            </thead>
+            {/* Table body */}
+            <tbody className="text-sm font-medium divide-y divide-gray-100">
+              {tableData &&
+                tableData.map((brand, index) => {
+                  return (
+                    <tr key={index}>
+                      <td className="p-2">
+                        <div className="">
+                          <Link
+                            to={{
+                              pathname: `brands/${brand.keyword}`,
+                              title: brand.keyword,
+                            }}
+                            className="flex items-center"
+                            params={{ testvalue: "hello" }}
+                          >
+                            <svg
+                              className="flex-shrink-0 mr-2 sm:mr-3"
+                              width="36"
+                              height="36"
+                              viewBox="0 0 36 36"
                             >
-                              <svg
-                                className="flex-shrink-0 mr-2 sm:mr-3"
-                                width="36"
-                                height="36"
-                                viewBox="0 0 36 36"
-                              >
-                                <circle fill="#24292E" cx="18" cy="18" r="18" />
-                                <path
-                                  d="M18 10.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V24c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z"
-                                  fill="#FFF"
-                                />
-                              </svg>
-                              <div className="brand-title whitespace-nowrap">
-                                {brand.keyword}
-                              </div>
-                            </Link>
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center">707,454,37</div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center text-red-500">4%</div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center text-green-500">
-                            7.83%
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center">7,458,370</div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center">7,458,370</div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center">
-                            {formatNumber(brand.volume)}
-                          </div>
-                        </td>
-                        <td className="p-2">
-                          <div className="text-center">7,458,370</div>
-                        </td>
-                        <td>
-                          <div className="flex-grow">
-                            <LineChart
-                              data={chartData}
-                              width={150}
-                              height={65}
-                            />
-                          </div>
-                        </td>
-                      </tr>
-                    );
-                  })}
-              </tbody>
-            </table>
-          </div>
+                              <circle fill="#24292E" cx="18" cy="18" r="18" />
+                              <path
+                                d="M18 10.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V24c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z"
+                                fill="#FFF"
+                              />
+                            </svg>
+                            <div className="brand-title whitespace-nowrap">
+                              {brand.keyword}
+                            </div>
+                          </Link>
+                        </div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center">707,454,37</div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center text-red-500">4%</div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center text-green-500">7.83%</div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center">7,458,370</div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center">7,458,370</div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center">
+                          {formatNumber(brand.volume)}
+                        </div>
+                      </td>
+                      <td className="p-2">
+                        <div className="text-center">7,458,370</div>
+                      </td>
+                      <td>
+                        <div className="flex-grow">
+                          <LineChart data={chartData} width={150} height={65} />
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 
