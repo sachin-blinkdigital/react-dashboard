@@ -56,7 +56,7 @@ function DashboardTable({ tableData, activeTab }) {
   const label = "instagram";
 
   if (activeTab != label) return null;
-
+  if (!tableData) return <>Loading</>;
   return (
     <div className="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-gray-200">
       <div className="">
