@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <main>{children}</main>
+      {children}
       <Footer />
     </>
   );

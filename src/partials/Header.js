@@ -17,9 +17,10 @@ function Header({ sidebarOpen, setSidebarOpen }) {
           </div>
           {/* Header: Left side */}
           <div className="flex">
+            {/* <SearchModal /> */}
             {/* Hamburger button */}
             <button
-              className="text-gray-500 hover:text-gray-600 "
+              className="text-gray-500 hover:text-gray-600 ml-2"
               aria-controls="sidebar"
               aria-expanded={sidebarOpen}
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -68,7 +69,6 @@ function Header({ sidebarOpen, setSidebarOpen }) {
           {/* Header: Right side */}
           {/* <div className="flex items-center"> */}
 
-          {/* <SearchModal /> */}
           {/* <Notifications />
             <Help /> */}
           {/*  Divider */}

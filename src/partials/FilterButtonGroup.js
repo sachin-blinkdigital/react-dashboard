@@ -21,10 +21,6 @@ export default function FilterButtonGroup({ activeTab, onFilterButtonClick }) {
     },
   ];
 
-  const getRowsByCount = (n, arr) => {
-    return arr.slice(0, n);
-  };
-
   //console.log(getRowsByCount(2, filters));
 
   return (

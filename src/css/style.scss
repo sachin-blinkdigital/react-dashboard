@@ -56,6 +56,11 @@ $book: "Circular-Book";
   display: flex; // new
 }
 
+button:focus,
+a:focus {
+  outline: none;
+}
+
 .bg-lgray {
   background: $bg_gray;
 }

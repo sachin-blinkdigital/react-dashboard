@@ -13,7 +13,7 @@ import {
 import "chartjs-adapter-moment";
 
 // Import utilities
-import { tailwindConfig, formatValue } from "../utils/Utils";
+import { tailwindConfig } from "../utils/Utils";
 
 Chart.register(
   LineController,
@@ -49,7 +49,7 @@ function RealtimeChart({ data, width, height }) {
             suggestedMax: 80,
             ticks: {
               maxTicksLimit: 5,
-              callback: (value) => formatValue(value),
+              callback: (value) => value,
             },
           },
           x: {
@@ -81,7 +81,7 @@ function RealtimeChart({ data, width, height }) {
               weight: "600",
             },
             callbacks: {
-              label: (context) => formatValue(context.parsed.y),
+              label: (context) => context.parsed.y,
             },
           },
         },

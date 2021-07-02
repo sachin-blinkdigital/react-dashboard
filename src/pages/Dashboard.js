@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Layout from "../partials/Layout";
 import DashboardTable from "../partials/dashboard/DashboardTable";
@@ -9,8 +9,23 @@ import FilterButton from "../partials/actions/FilterButton";
 function Dashboard() {
   const [activeTab, setactiveTab] = useState("instagram");
 
+  const [searchVolume, setsearchVolume] = useState(null);
+
   const handleOnTabButtonClick = (name) => {
     setactiveTab(name);
+  };
+
+  useEffect(() => {
+    fetchSearchVolume();
+  }, []);
+
+  const fetchSearchVolume = () => {
+    fetch("http://128.199.117.30/digital-presence-index/api/volume/")
+      .then((res) => res.json())
+      .then((res) => {
+        //console.log(res.data);
+        setsearchVolume(res.data);
+      });
   };
 
   return (
@@ -34,7 +49,7 @@ function Dashboard() {
             </div>
           </div>
 
-          <DashboardTable activeTab={activeTab} />
+          <DashboardTable tableData={searchVolume} activeTab={activeTab} />
         </div>
       </Layout>
     </>

@@ -1,8 +1,20 @@
 import React from "react";
 
-export default function FIlterRowsButton() {
+export default function FilterRowsButton() {
+  const handleRowbuttonclick = (event) => {
+    console.log(event.target.value);
+  };
+
+  const getRowsByCount = (n, arr) => {
+    return arr.slice(0, n);
+  };
+
   return (
-    <select name="rows mr-1" defaultValue={"Default"}>
+    <select
+      name="rows mr-1"
+      defaultValue={"Default"}
+      onChange={handleRowbuttonclick}
+    >
       <option value="Default" disabled>
         Rows
       </option>
