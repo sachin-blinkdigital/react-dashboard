@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from "react";
+import useSWR from "swr";
 
 export default function useFetch(url, options) {
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(url, options);
-        const json = await res.json();
-        setResponse(json);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    fetchData();
-  }, []);
-  return { response, error };
+  const fetcher = (url) => fetch(url, options).then((res) => res.json());
+  const { data, error } = useSWR(url, fetcher);
+
+  return {
+    response: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
 }

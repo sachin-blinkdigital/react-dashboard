@@ -1,6 +1,8 @@
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfigFile from "../css/tailwind.config";
 
+import { useLocation } from "react-router-dom";
+
 export const tailwindConfig = () => {
   // Tailwind config
   return resolveConfig(tailwindConfigFile);
@@ -39,4 +41,8 @@ export const formatNumber = (inputNumber) => {
     formetedNumber = splitArray[0];
   }
   return formetedNumber;
+};
+
+export const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
 };

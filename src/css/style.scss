@@ -182,7 +182,10 @@ main {
 .dashboard-table {
   thead {
     tr {
-      th:first-child {
+      th:nth-child(1) {
+        width: 40px;
+      }
+      th:nth-child(2) {
         width: 200px;
       }
       th:last-child {
@@ -201,6 +204,13 @@ main {
           font-weight: 600;
         }
       }
+      .btn-sortable {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          color: $prime_red;
+        }
+      }
     }
   }
   tbody {
@@ -210,6 +220,12 @@ main {
         .brand-title {
           font-family: $bold;
           font-size: 16px;
+        }
+        .brand-icon {
+          max-width: 36px;
+          margin-right: 5px;
+          border-radius: 50%;
+          box-shadow: 4px 2px 7px -7px rgba(0, 0, 0, 0.75);
         }
         a {
           transition: all 0.3s ease;

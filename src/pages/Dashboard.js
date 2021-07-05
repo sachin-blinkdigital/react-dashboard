@@ -6,6 +6,8 @@ import FilterButtonGroup from "../partials/FilterButtonGroup";
 import FilterRowsButton from "../partials/FilterRowsButton";
 import FilterButton from "../partials/actions/FilterButton";
 
+import useFetch from "../hooks/useFetch";
+
 function Dashboard() {
   const [activeTab, setactiveTab] = useState("instagram");
 
@@ -15,18 +17,18 @@ function Dashboard() {
     setactiveTab(name);
   };
 
-  useEffect(() => {
-    fetchSearchVolume();
-  }, []);
+  const { response } = useFetch(`https://blinklocal.in/api/volume/`, {});
 
-  const fetchSearchVolume = () => {
-    fetch("https://blinklocal.in/api/volume/")
-      .then((res) => res.json())
-      .then((res) => {
-        //console.log(res.data);
-        setsearchVolume(res.data);
+  useEffect(() => {
+    const rankedVolumes =
+      response &&
+      response.data.map((item, index) => {
+        return { rank: index + 1, ...item };
       });
-  };
+    setsearchVolume(rankedVolumes);
+  }, [response]);
+
+  //console.log(searchVolume);
 
   return (
     <>

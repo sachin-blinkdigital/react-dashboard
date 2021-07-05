@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Layout from "../partials/Layout";
 import { useParams } from "react-router-dom";
 import DashboardCard05 from "../partials/dashboard/DashboardCard05";
+import useFetch from "../hooks/useFetch";
 
-export default function Brand(props) {
-  let { slug } = useParams();
-  //console.log(props.location);
+import { formatNumber } from "../utils/Utils";
+
+export default function Brand() {
+  let { id, rank } = useParams();
+  const [pageData, setpageData] = useState({});
+
   useEffect(() => {
     document.body.classList.add("bg-lgray");
     return () => {
@@ -14,10 +18,18 @@ export default function Brand(props) {
     };
   }, []);
 
+  const { response } = useFetch(`https://blinklocal.in/api/volume/${id}`, {});
+
+  useEffect(() => {
+    response && setpageData(response.data[0]);
+  }, [response]);
+
+  const { heading, volume, thumbnail } = { ...pageData };
+
   return (
     <Layout>
       <Helmet>
-        <title data-react-helmet="true">brand page</title>
+        <title data-react-helmet="true"></title>
         <meta
           name="description"
           content="brand desc"
@@ -29,15 +41,15 @@ export default function Brand(props) {
           <div className="name-section">
             <div className="logo-wrap">
               <img
-                src="https://via.placeholder.com/300.png"
+                src={thumbnail || "https://via.placeholder.com/300.png"}
                 className="img-responsive"
                 alt=""
               />
               <div className="meta">
-                <h2>KFC</h2>
+                <h2>{heading && heading}</h2>
                 <div>
                   <div className="namepill mr-1">
-                    Rank #1{" "}
+                    Rank #{rank && rank}{" "}
                     <span className="stat-update">
                       23 <i className="fa fa-caret-up" aria-hidden="true"></i>
                     </span>
@@ -93,7 +105,7 @@ export default function Brand(props) {
                 <div className="unit">
                   <h4>Search Volume</h4>
                   <div className="value">
-                    <div>707,454,87</div>
+                    <div>{volume && formatNumber(volume)}</div>
                     <span className="text-green-500">
                       41% <i className="fa fa-caret-up" aria-hidden="true"></i>
                     </span>
